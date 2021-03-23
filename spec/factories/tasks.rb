@@ -1,11 +1,9 @@
 FactoryBot.define do
   factory :task do
-    title {'title'}
-    content {'content'}
-    status {0}
-    deadline {'tomorrow'}
-    created_at {Time.now}
-    updated_at {Time.now}
-    user
+    sequence(:title, "title_1")
+    content { "content" }
+    status { :todo }
+    deadline { 1.week.from_now }
+    association :user
   end
 end
